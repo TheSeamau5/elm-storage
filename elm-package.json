@@ -7,7 +7,6 @@
         "src"
     ],
     "exposed-modules": [
-        "Storage"
     ],
     "native-modules": true,
     "dependencies": {
