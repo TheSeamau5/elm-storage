@@ -11,11 +11,11 @@ import Task exposing (..)
 
 import Debug
 
-type alias Model = String
+type alias Model = Maybe String
 
 initialModel : Model
 initialModel =
-  ""
+  Nothing
 
 init : (Model, Effects Action)
 init =
@@ -50,7 +50,7 @@ update action model =
     UpdateModel result ->
       case result of
         Ok s ->
-          (s, Effects.none)
+          (Just s, Effects.none)
         Err err ->
           (model, Effects.none)
 
@@ -73,6 +73,14 @@ getInputFromStorage =
 
 view : Signal.Address Action -> Model -> Html
 view address model =
+  let
+    existingValue =
+      case model of
+        Just s ->
+          text s
+        Nothing ->
+          text ""
+  in
   div []
   [ h2 [] [ text "Storage example"]
   , input
@@ -80,5 +88,5 @@ view address model =
       , required True
       , placeholder "Add some text"
       ] []
-  , text model
+  , existingValue
   ]
