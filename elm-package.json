@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "LocalForage Bindings in Elm",
-    "repository": "https://github.com/USER/PROJECT.git",
+    "repository": "https://github.com/TheSeamau5/elm-storage.git",
     "license": "BSD3",
     "source-directories": [
         "src"
